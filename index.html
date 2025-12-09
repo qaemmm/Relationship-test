@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>亲密关系深度体检：你是焦虑型还是回避型？</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="landing-page">
+    <div class="container">
+        <!-- Hero 区域 -->
+        <header class="hero">
+            <h1 class="hero-title">
+                亲密关系深度体检<br>
+                你是<span class="highlight">焦虑型</span>还是<span class="highlight">回避型</span>？
+            </h1>
+            <p class="hero-subtitle">揭秘你在爱里的潜意识模式，找回掌控感</p>
+
+            <div class="tags">
+                <span class="tag">#依恋理论</span>
+                <span class="tag">#界限感</span>
+                <span class="tag">#情感自救</span>
+            </div>
+        </header>
+
+        <!-- 信任背书 -->
+        <section class="trust-badges">
+            <div class="badge">
+                <div class="badge-icon">✓</div>
+                <div class="badge-text">基于成人依恋理论研发</div>
+            </div>
+            <div class="badge">
+                <div class="badge-icon">⏱</div>
+                <div class="badge-text">3分钟深度分析</div>
+            </div>
+            <div class="badge">
+                <div class="badge-icon">💡</div>
+                <div class="badge-text">已有32,456人完成测评</div>
+            </div>
+        </section>
+
+        <!-- 用户痛点 -->
+        <section class="pain-points">
+            <h2 class="section-title">你是否也有这些困扰？</h2>
+            <ul class="pain-list">
+                <li>✓ 总是担心对方不爱我了</li>
+                <li>✓ 在关系里患得患失</li>
+                <li>✓ 不知道如何建立边界</li>
+                <li>✓ 搞不懂伴侣的回避行为</li>
+            </ul>
+        </section>
+
+        <!-- 兑换码验证区域 -->
+        <div class="code-entry-section">
+            <h2 class="code-title">输入兑换码开始测评</h2>
+            <p class="code-subtitle">从小红书获取兑换码后，即可开始深度分析</p>
+
+            <div class="code-input-wrapper">
+                <input type="text" id="accessCode" class="code-input" placeholder="请输入8位兑换码" maxlength="8"
+                    autocomplete="off">
+                <button class="code-submit-btn" onclick="validateAccessCode()">
+                    验证并开始
+                </button>
+            </div>
+
+            <p class="error-msg" id="errorMsg" style="display: none;"></p>
+            <p class="code-hint">💡 提示：兑换码不区分大小写，输入后自动转换为大写</p>
+        </div>
+    </div>
+
+    <script src="js/codes.js"></script>
+    <script>
+        // 兑换码输入自动大写
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('accessCode');
+            input.addEventListener('input', (e) => {
+                e.target.value = e.target.value.toUpperCase();
+            });
+
+            // 支持回车键提交
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    validateAccessCode();
+                }
+            });
+        });
+
+        // 验证兑换码（异步函数）
+        async function validateAccessCode() {
+            const code = document.getElementById('accessCode').value.trim();
+
+            if (!code) {
+                showError('请输入兑换码');
+                return;
+            }
+
+            if (code.length !== 8) {
+                showError('兑换码应为8位字符');
+                return;
+            }
+
+            try {
+                // 调用验证逻辑（来自 codes.js） - 需要await
+                const result = await verifyRedemptionCode(code);
+
+                if (result.success) {
+                    // 验证成功，保存并跳转
+                    localStorage.setItem('validatedCode', code);
+                    localStorage.setItem('unlocked', 'true');
+
+                    // 清除之前的答题数据（开始新测评）
+                    localStorage.removeItem('answers');
+                    localStorage.removeItem('result');
+
+                    window.location.href = 'quiz.html';
+                } else {
+                    showError(result.message);
+                }
+            } catch (error) {
+                console.error('验证失败:', error);
+                showError('验证失败，请重试');
+            }
+        }
+
+        // 显示错误信息
+        function showError(message) {
+            const errorMsg = document.getElementById('errorMsg');
+            const input = document.getElementById('accessCode');
+
+            errorMsg.textContent = message;
+            errorMsg.style.display = 'block';
+            input.classList.add('error');
+
+            setTimeout(() => {
+                errorMsg.style.display = 'none';
+                input.classList.remove('error');
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>

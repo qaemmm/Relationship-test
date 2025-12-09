@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测评报告 - 亲密关系依恋测评</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/report.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="report-page">
+    <div class="report-container">
+        <!-- 头部卡片 -->
+        <div class="header-card">
+            <p class="label-text">你的依恋类型是：</p>
+            <h1 class="type-title" id="typeTitle">加载中...</h1>
+            <p class="type-subtitle" id="typeSubtitle">加载中...</p>
+        </div>
+
+        <!-- 数据可视化 -->
+        <div class="data-section">
+            <h2 class="section-title">四维评分</h2>
+
+            <!-- 雷达图 -->
+            <div class="chart-container">
+                <canvas id="radarChart"></canvas>
+            </div>
+
+            <!-- 详细得分 -->
+            <div class="score-details">
+                <div class="score-item">
+                    <div class="score-label">依恋焦虑</div>
+                    <div class="score-bar">
+                        <div class="score-fill" id="scoreA"></div>
+                    </div>
+                    <div class="score-value" id="scoreAText">-</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">依恋回避</div>
+                    <div class="score-bar">
+                        <div class="score-fill" id="scoreB"></div>
+                    </div>
+                    <div class="score-value" id="scoreBText">-</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">界限感</div>
+                    <div class="score-bar">
+                        <div class="score-fill" id="scoreC"></div>
+                    </div>
+                    <div class="score-value" id="scoreCText">-</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">自我价值脆弱度</div>
+                    <div class="score-bar">
+                        <div class="score-fill" id="scoreD"></div>
+                    </div>
+                    <div class="score-value" id="scoreDText">-</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 深度解读 -->
+        <div class="content-section" id="contentSection">
+            <div class="locked-content" id="lockedContent">
+                <div class="lock-icon">🔒</div>
+                <p>完整解读内容已锁定</p>
+                <p class="lock-hint">使用兑换码解锁查看详细分析和建议</p>
+            </div>
+
+            <div class="unlocked-content" id="unlockedContent" style="display: none;">
+                <!-- 恋爱画像 -->
+                <div class="analysis-block">
+                    <h3 class="block-title">📖 你的恋爱画像</h3>
+                    <div class="block-content" id="portraitContent"></div>
+                </div>
+
+                <!-- 盲区与风险 -->
+                <div class="analysis-block">
+                    <h3 class="block-title">⚠️ 盲区与风险</h3>
+                    <div class="block-content" id="riskContent"></div>
+                </div>
+
+                <!-- 救急处方 -->
+                <div class="analysis-block">
+                    <h3 class="block-title">💊 救急处方</h3>
+                    <div class="block-content" id="adviceContent"></div>
+                </div>
+
+                <!-- 界限感解读 -->
+                <div class="analysis-block">
+                    <h3 class="block-title">🛡️ 界限感分析</h3>
+                    <div class="block-content" id="boundaryContent"></div>
+                </div>
+
+                <!-- 自我价值解读 -->
+                <div class="analysis-block">
+                    <h3 class="block-title">💎 自我价值分析</h3>
+                    <div class="block-content" id="selfWorthContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部说明 -->
+        <div class="disclaimer">
+            <p><strong>⚠️ 重要提示</strong></p>
+            <p>本测评基于依恋理论研究，仅供自我了解和科普参考。不构成任何医学或心理诊断。如长期被焦虑、抑郁困扰，建议寻求专业帮助。</p>
+        </div>
+
+        <!-- 返回首页 -->
+        <div class="action-buttons">
+            <button class="secondary-btn" onclick="window.location.href='index.html'">
+                返回首页
+            </button>
+        </div>
+    </div>
+
+    <script src="js/algorithm.js"></script>
+    <script src="js/report.js"></script>
+</body>
+
+</html>

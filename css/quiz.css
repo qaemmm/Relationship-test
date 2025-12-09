@@ -1,0 +1,193 @@
+/* 答题页样式 */
+.quiz-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 进度条 */
+.progress-container {
+    position: sticky;
+    top: 0;
+    background: var(--color-white);
+    padding: 16px 20px;
+    box-shadow: var(--shadow-sm);
+    z-index: 100;
+}
+
+.progress-bar {
+    height: 6px;
+    background: rgba(255, 182, 193, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    border-radius: 3px;
+    transition: width 0.4s ease;
+}
+
+.progress-text {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--color-text-light);
+    font-weight: 500;
+}
+
+/* 题目容器 */
+.quiz-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.question-card {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    box-shadow: var(--shadow-lg);
+    max-width: 600px;
+    width: 100%;
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.question-number {
+    font-size: 14px;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.question-text {
+    font-size: 20px;
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    font-weight: 500;
+}
+
+/* 选项容器 */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-btn {
+    background: var(--color-bg);
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.option-btn:hover {
+    background: white;
+    border-color: var(--color-primary);
+    transform: translateX(4px);
+}
+
+.option-btn:active {
+    transform: scale(0.98);
+}
+
+.option-label {
+    font-size: 16px;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.option-value {
+    font-size: 18px;
+    color: var(--color-primary);
+    font-weight: 600;
+    width: 32px;
+    height: 32px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.option-btn.selected {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-color: var(--color-primary);
+}
+
+.option-btn.selected .option-label,
+.option-btn.selected .option-value {
+    color: white;
+}
+
+.option-btn.selected .option-value {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* 返回按钮 */
+.back-btn {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    background: transparent;
+    color: var(--color-text-light);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    color: var(--color-primary);
+    background: rgba(255, 182, 193, 0.1);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .question-card {
+        padding: 32px 24px;
+    }
+
+    .question-text {
+        font-size: 18px;
+    }
+
+    .option-btn {
+        padding: 14px 16px;
+    }
+
+    .option-label {
+        font-size: 15px;
+    }
+}

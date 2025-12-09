@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解锁完整报告 - 亲密关系依恋测评</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/unlock.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="unlock-page">
+    <div class="unlock-container">
+        <!-- 进度提示 -->
+        <div class="completion-badge">
+            ✓ 测评已完成，分析已生成
+        </div>
+
+        <!-- 模糊预览 -->
+        <div class="preview-section">
+            <h2 class="preview-title">根据你的答案，我们发现：</h2>
+            <div class="insight-box">
+                <p class="insight-text">
+                    你在亲密关系中存在一种<br>
+                    <span class="insight-highlight" id="tendencyType">【隐性倾向】</span>
+                </p>
+            </div>
+
+            <div class="blur-content">
+                <div class="blur-overlay"></div>
+                <div class="locked-icon">🔒</div>
+                <p class="blur-text">
+                    • 你的4维深度画像<br>
+                    • 为什么总是重复相同剧本<br>
+                    • 如何打破这种循环
+                </p>
+            </div>
+        </div>
+
+        <!-- 兑换码输入 -->
+        <div class="unlock-section">
+            <h3 class="unlock-title">输入兑换码查看完整报告</h3>
+            <input type="text" id="codeInput" class="code-input" placeholder="请输入兑换码" maxlength="20">
+            <button class="unlock-btn" onclick="verifyCode()">
+                解锁完整报告
+            </button>
+            <p class="error-msg" id="errorMsg" style="display: none;"></p>
+        </div>
+
+        <!-- 跳过选项（临时） -->
+        <div class="skip-section">
+            <button class="skip-btn" onclick="skipToReport()">
+                暂时跳过（查看基础版）
+            </button>
+        </div>
+    </div>
+
+    <script src="js/unlock.js"></script>
+</body>
+
+</html>

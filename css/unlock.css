@@ -1,0 +1,204 @@
+/* 解锁页样式 */
+.unlock-page {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.unlock-container {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* 完成徽章 */
+.completion-badge {
+    background: linear-gradient(135deg, var(--color-success), #7FD8BE);
+    color: white;
+    text-align: center;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-md);
+}
+
+/* 预览区域 */
+.preview-section {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-md);
+}
+
+.preview-title {
+    font-size: 18px;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.insight-box {
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.1), rgba(237, 178, 197, 0.1));
+    border-radius: var(--radius-md);
+    padding: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.insight-text {
+    font-size: 16px;
+    color: var(--color-text);
+    line-height: 1.8;
+}
+
+.insight-highlight {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+/* 模糊内容 */
+.blur-content {
+    position: relative;
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    padding: 32px;
+    overflow: hidden;
+}
+
+.blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 249, 243, 0.9);
+    backdrop-filter: blur(8px);
+    z-index: 1;
+}
+
+.locked-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    z-index: 2;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+.blur-text {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    position: relative;
+}
+
+/* 解锁区域 */
+.unlock-section {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+.unlock-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 24px;
+}
+
+.code-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 16px 20px;
+    border: 2px solid rgba(255, 182, 193, 0.3);
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-family: var(--font-family);
+    text-align: center;
+    transition: var(--transition);
+    margin-bottom: 16px;
+}
+
+.code-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(255, 182, 193, 0.1);
+}
+
+.code-input::placeholder {
+    color: var(--color-text-light);
+}
+
+.unlock-btn {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    padding: 16px 48px;
+    border-radius: var(--radius-md);
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    width: 100%;
+    max-width: 400px;
+}
+
+.unlock-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.error-msg {
+    color: var(--color-danger);
+    font-size: 14px;
+    margin-top: 12px;
+    background: rgba(255, 170, 165, 0.1);
+    padding: 12px;
+    border-radius: var(--radius-sm);
+}
+
+/* 跳过区域 */
+.skip-section {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.skip-btn {
+    background: transparent;
+    color: var(--color-text-light);
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.skip-btn:hover {
+    color: var(--color-primary);
+    background: rgba(255, 182, 193, 0.1);
+}

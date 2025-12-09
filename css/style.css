@@ -1,0 +1,136 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* 配色方案 - 治愈风格 */
+    --color-primary: #FFB6C1;        /* 暖粉色 */
+    --color-secondary: #EDB2C5;      /* 藕荷色 */
+    --color-accent: #FFA8C5;         /* 强调色 */
+    --color-bg: #FFF9F3;             /* 柔光白背景 */
+    --color-text: #4A4A4A;           /* 深灰文字 */
+    --color-text-light: #8A8A8A;     /* 浅灰文字 */
+    --color-white: #FFFFFF;
+    --color-success: #A8E6CF;        /* 绿色 */
+    --color-warning: #FFD3B6;        /* 橙色 */
+    --color-danger: #FFAAA5;         /* 红色 */
+    
+    /* 字体 */
+    --font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* 阴影 */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+    
+    /* 圆角 */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    
+    /* 过渡 */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: var(--font-family);
+    background: linear-gradient(135deg, var(--color-bg) 0%, #FFE9F0 100%);
+    color: var(--color-text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 按钮样式 */
+button {
+    font-family: var(--font-family);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    padding: 16px 40px;
+    border-radius: var(--radius-md);
+    font-size: 18px;
+    font-weight: 500;
+    box-shadow: var(--shadow-md);
+}
+
+.secondary-btn {
+    background: var(--color-white);
+    color: var(--color-primary);
+    padding: 12px 32px;
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    border: 2px solid var(--color-primary);
+}
+
+.secondary-btn:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* 卡片样式 */
+.card {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 24px;
+}
+
+/* 标签样式 */
+.tag {
+    display: inline-block;
+    background: rgba(255, 182, 193, 0.2);
+    color: var(--color-primary);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin: 4px;
+}
+
+/* 加载动画 */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 182, 193, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--color-primary);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+    
+    .card {
+        padding: 24px;
+    }
+}
