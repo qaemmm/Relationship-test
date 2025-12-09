@@ -1,0 +1,30 @@
+{
+    "version": 2,
+    "name": "relationship-assessment-mvp",
+    "builds": [
+        {
+            "src": "**",
+            "use": "@vercel/static"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/data/codes.json",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "no-cache, no-store, must-revalidate"
+                }
+            ]
+        },
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, must-revalidate"
+                }
+            ]
+        }
+    ]
+}
